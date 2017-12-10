@@ -36,6 +36,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.EraseButton = new System.Windows.Forms.Button();
             this.StatusLabel = new System.Windows.Forms.Label();
+            this.NoiseButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // identifyButton
             // 
             this.identifyButton.Enabled = false;
-            this.identifyButton.Location = new System.Drawing.Point(121, 123);
+            this.identifyButton.Location = new System.Drawing.Point(121, 131);
             this.identifyButton.Name = "identifyButton";
             this.identifyButton.Size = new System.Drawing.Size(75, 52);
             this.identifyButton.TabIndex = 1;
@@ -86,7 +87,7 @@
             // 
             // downloadButton
             // 
-            this.downloadButton.Location = new System.Drawing.Point(15, 152);
+            this.downloadButton.Location = new System.Drawing.Point(16, 160);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(75, 23);
             this.downloadButton.TabIndex = 4;
@@ -96,7 +97,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(15, 123);
+            this.saveButton.Location = new System.Drawing.Point(16, 131);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 5;
@@ -125,12 +126,23 @@
             this.StatusLabel.TabIndex = 7;
             this.StatusLabel.Text = "Готов к работе.";
             // 
+            // NoiseButton
+            // 
+            this.NoiseButton.Location = new System.Drawing.Point(121, 102);
+            this.NoiseButton.Name = "NoiseButton";
+            this.NoiseButton.Size = new System.Drawing.Size(75, 23);
+            this.NoiseButton.TabIndex = 8;
+            this.NoiseButton.Text = "Зашумить";
+            this.NoiseButton.UseVisualStyleBackColor = true;
+            this.NoiseButton.Click += new System.EventHandler(this.NoiseButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(210, 228);
+            this.ClientSize = new System.Drawing.Size(220, 228);
+            this.Controls.Add(this.NoiseButton);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.EraseButton);
             this.Controls.Add(this.saveButton);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button EraseButton;
         private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.Button NoiseButton;
     }
 }
 

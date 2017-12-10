@@ -13,7 +13,7 @@ namespace NHopfild
 {
     public partial class Form1 : Form
     {
-        private const int ALLOWED_NOISE = 2;
+        private const int ALLOWED_NOISE = 6;
         private const double WEIGHT_CORRECT_COEF = 0.07;
         private const int DIMENSION = 800;
 
@@ -330,6 +330,20 @@ namespace NHopfild
 
             isPictureDrawn = true;
             UpdateLearnButton();
+        }
+
+        private void NoiseButton_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            Graphics g = Graphics.FromImage(pictureBox.Image);
+            Model.Brush noiseBrush = new Model.Brush(0);
+            for (int i = 0; i < 100; i++)
+            {
+                int nx = r.Next(1, 99);
+                int ny = r.Next(1, 99);
+                noiseBrush.Draw(g, nx, ny, color);
+            }
+            pictureBox.Refresh();
         }
     }
 }
