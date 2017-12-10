@@ -34,7 +34,8 @@
             this.mislearnButton = new System.Windows.Forms.Button();
             this.downloadButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.eraiseButton = new System.Windows.Forms.Button();
+            this.EraseButton = new System.Windows.Forms.Button();
+            this.StatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBox.Location = new System.Drawing.Point(39, 31);
+            this.pictureBox.Location = new System.Drawing.Point(15, 15);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(100, 100);
             this.pictureBox.TabIndex = 0;
@@ -53,9 +54,9 @@
             // identifyButton
             // 
             this.identifyButton.Enabled = false;
-            this.identifyButton.Location = new System.Drawing.Point(178, 31);
+            this.identifyButton.Location = new System.Drawing.Point(121, 123);
             this.identifyButton.Name = "identifyButton";
-            this.identifyButton.Size = new System.Drawing.Size(75, 23);
+            this.identifyButton.Size = new System.Drawing.Size(75, 52);
             this.identifyButton.TabIndex = 1;
             this.identifyButton.Text = "Распознать";
             this.identifyButton.UseVisualStyleBackColor = true;
@@ -64,7 +65,7 @@
             // learnButton
             // 
             this.learnButton.Enabled = false;
-            this.learnButton.Location = new System.Drawing.Point(178, 60);
+            this.learnButton.Location = new System.Drawing.Point(121, 15);
             this.learnButton.Name = "learnButton";
             this.learnButton.Size = new System.Drawing.Size(75, 23);
             this.learnButton.TabIndex = 2;
@@ -75,7 +76,7 @@
             // mislearnButton
             // 
             this.mislearnButton.Enabled = false;
-            this.mislearnButton.Location = new System.Drawing.Point(178, 89);
+            this.mislearnButton.Location = new System.Drawing.Point(121, 73);
             this.mislearnButton.Name = "mislearnButton";
             this.mislearnButton.Size = new System.Drawing.Size(75, 23);
             this.mislearnButton.TabIndex = 3;
@@ -85,7 +86,7 @@
             // 
             // downloadButton
             // 
-            this.downloadButton.Location = new System.Drawing.Point(178, 118);
+            this.downloadButton.Location = new System.Drawing.Point(15, 152);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(75, 23);
             this.downloadButton.TabIndex = 4;
@@ -95,7 +96,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(178, 147);
+            this.saveButton.Location = new System.Drawing.Point(15, 123);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 5;
@@ -103,33 +104,49 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // eraiseButton
+            // EraseButton
             // 
-            this.eraiseButton.Location = new System.Drawing.Point(178, 176);
-            this.eraiseButton.Name = "eraiseButton";
-            this.eraiseButton.Size = new System.Drawing.Size(75, 23);
-            this.eraiseButton.TabIndex = 6;
-            this.eraiseButton.Text = "Очистить";
-            this.eraiseButton.UseVisualStyleBackColor = true;
-            this.eraiseButton.Click += new System.EventHandler(this.eraiseButton_Click);
+            this.EraseButton.Location = new System.Drawing.Point(121, 44);
+            this.EraseButton.Name = "EraseButton";
+            this.EraseButton.Size = new System.Drawing.Size(75, 23);
+            this.EraseButton.TabIndex = 6;
+            this.EraseButton.Text = "Очистить";
+            this.EraseButton.UseVisualStyleBackColor = true;
+            this.EraseButton.Click += new System.EventHandler(this.eraiseButton_Click);
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StatusLabel.Location = new System.Drawing.Point(12, 199);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(128, 20);
+            this.StatusLabel.TabIndex = 7;
+            this.StatusLabel.Text = "Готов к работе.";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.eraiseButton);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(210, 228);
+            this.Controls.Add(this.StatusLabel);
+            this.Controls.Add(this.EraseButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.mislearnButton);
             this.Controls.Add(this.learnButton);
             this.Controls.Add(this.identifyButton);
             this.Controls.Add(this.pictureBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Сеть Хопфилда";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,7 +158,8 @@
         private System.Windows.Forms.Button mislearnButton;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button eraiseButton;
+        private System.Windows.Forms.Button EraseButton;
+        private System.Windows.Forms.Label StatusLabel;
     }
 }
 

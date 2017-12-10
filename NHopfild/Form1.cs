@@ -13,7 +13,7 @@ namespace NHopfild
 {
     public partial class Form1 : Form
     {
-        private const int ALLOWED_NOISE = 1;
+        private const int ALLOWED_NOISE = 2;
         private const double WEIGHT_CORRECT_COEF = 0.07;
         private const int DIMENSION = 800;
 
@@ -24,7 +24,7 @@ namespace NHopfild
         private Model.Brush brush;
         private Color color;
 
-        private bool isPictureDrown = false;
+        private bool isPictureDrawn = false;
         
         public Form1()
         {
@@ -38,6 +38,7 @@ namespace NHopfild
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
+            isPictureDrawn = true;
             if (e.Button == MouseButtons.Left)
             {
                 Graphics g = Graphics.FromImage(pictureBox.Image);
@@ -59,17 +60,18 @@ namespace NHopfild
         private void eraiseButton_Click(object sender, EventArgs e)
         {
             InitImage();
-            isPictureDrown = false;
+            isPictureDrawn = false;
             UpdateLearnButton();
+            StatusLabel.Text = "Готов к работе.";
         }
 
         private void UpdateLearnButton()
         {
-            learnButton.Enabled = isPictureDrown;
+            learnButton.Enabled = isPictureDrawn;
             learnButton.Refresh();
-            mislearnButton.Enabled = isPictureDrown;
+            mislearnButton.Enabled = isPictureDrawn;
             learnButton.Refresh();
-            identifyButton.Enabled = isPictureDrown;
+            identifyButton.Enabled = isPictureDrawn;
             identifyButton.Refresh();
         }
 
@@ -77,7 +79,8 @@ namespace NHopfild
         {
             cur_inputs = CurInputsInit();
             PaintInPictureBox(cur_inputs);
-
+            StatusLabel.Text = " ";
+            Thread.Sleep(10);
             Identify();
             do
             {
@@ -88,7 +91,7 @@ namespace NHopfild
             while (!IsInputsEqual());
 
             Thread.Sleep(2000);
-            MessageBox.Show("Успешно!");
+            StatusLabel.Text = "Распознано.";
         }
 
         private void learnButton_Click(object sender, EventArgs e)
@@ -105,12 +108,11 @@ namespace NHopfild
                             weights[RowIndex, ColIndex] += cur_inputs[RowIndex] * cur_inputs[ColIndex];
                     }
 
-                //CurInputsToLastInputs();
-                //cur_inputs = Identify();
+            //CurInputsToLastInputs();
+            //cur_inputs = Identify();
             //}
             //while (!IsInputsEqual());
-
-            MessageBox.Show("Успешно!");
+            StatusLabel.Text = "Обучение завершено";
 
         }
 
@@ -122,9 +124,7 @@ namespace NHopfild
                     if (RowIndex != ColIndex)
                         weights[RowIndex, ColIndex] = weights[RowIndex, ColIndex] - cur_inputs[RowIndex] * cur_inputs[ColIndex] * WEIGHT_CORRECT_COEF;
                 }
-
-            MessageBox.Show("Успешно!");
-
+            StatusLabel.Text = "Разобучение завершено";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -210,7 +210,7 @@ namespace NHopfild
                 sum.Add(s);
             }
 
-            isPictureDrown = true;
+            isPictureDrawn = true;
             UpdateLearnButton();
 
             List<int> result = new List<int>();
@@ -271,7 +271,7 @@ namespace NHopfild
                     }
                 }
             }
-
+            //isPictureDrawn = true;
             pictureBox.Image = image;
             pictureBox.Refresh();
 
@@ -328,7 +328,7 @@ namespace NHopfild
                 }
             }
 
-            isPictureDrown = true;
+            isPictureDrawn = true;
             UpdateLearnButton();
         }
     }
