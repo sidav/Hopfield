@@ -15,7 +15,10 @@ namespace NHopfild
     {
         private const int ALLOWED_NOISE = 6;
         private const double WEIGHT_CORRECT_COEF = 0.07;
-        private const int DIMENSION = 800;
+        private const int DIMENSION = 1800;
+        private int IMAGE_SIZE = 150;
+        private const int SUBCELL_SIZE = 5;
+        private int num_cells;
 
         private double[,] weights = new double[DIMENSION, DIMENSION];
         private List<int> last_inputs;
@@ -28,6 +31,7 @@ namespace NHopfild
         
         public Form1()
         {
+            num_cells = IMAGE_SIZE / SUBCELL_SIZE;
             InitializeComponent();
             brush = new Model.Brush(3);
             color = Color.Black;
@@ -184,8 +188,8 @@ namespace NHopfild
             cur_inputs = new List<int>();
             for (int inputIndex = 0; inputIndex < DIMENSION / 2; inputIndex++)
             {
-                int rowNum = inputIndex / 20;
-                int colNum = inputIndex % 20;
+                int rowNum = inputIndex / num_cells;
+                int colNum = inputIndex % num_cells;
 
                 bool doesContainImagePart = DoesBlockContainImagePart(image as Bitmap, rowNum, colNum);
                 cur_inputs.Add(doesContainImagePart ? 1 : -1);
@@ -235,11 +239,11 @@ namespace NHopfild
 
             int blackPixelsCount = 0;
 
-            for (int rowIndex = 0; rowIndex < 5; rowIndex++)
+            for (int rowIndex = 0; rowIndex < SUBCELL_SIZE; rowIndex++)
             {
-                for (int colIndex = 0; colIndex < 5; colIndex++)
+                for (int colIndex = 0; colIndex < SUBCELL_SIZE; colIndex++)
                 {
-                    if (Color.Black.ToArgb().Equals(image.GetPixel(5 * colNum + colIndex, 5 * rowNum + rowIndex).ToArgb()))
+                    if (Color.Black.ToArgb().Equals(image.GetPixel(SUBCELL_SIZE * colNum + colIndex, SUBCELL_SIZE * rowNum + rowIndex).ToArgb()))
                     {
                         blackPixelsCount++;
                     }
@@ -253,20 +257,20 @@ namespace NHopfild
         {
             InitImage();
             
-            Bitmap image = new Bitmap(100,100);
+            Bitmap image = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
 
             for (int index = 0; index < DIMENSION / 2; index++)
             {
                 if (outputs[index] == 1)
                 {
-                    int rowNum = index / 20;
-                    int colNum = index % 20;
+                    int rowNum = index / num_cells;
+                    int colNum = index % num_cells;
 
-                    for (int rowIndex = 0; rowIndex < 5; rowIndex++)
+                    for (int rowIndex = 0; rowIndex < SUBCELL_SIZE; rowIndex++)
                     {
-                        for (int colIndex = 0; colIndex < 5; colIndex++)
+                        for (int colIndex = 0; colIndex < SUBCELL_SIZE; colIndex++)
                         {
-                            image.SetPixel(5 * colNum + colIndex, 5 * rowNum + rowIndex, Color.Black);
+                            image.SetPixel(SUBCELL_SIZE * colNum + colIndex, SUBCELL_SIZE * rowNum + rowIndex, Color.Black);
                         }
                     }
                 }
@@ -337,10 +341,10 @@ namespace NHopfild
             Random r = new Random();
             Graphics g = Graphics.FromImage(pictureBox.Image);
             Model.Brush noiseBrush = new Model.Brush(0);
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 150; i++)
             {
-                int nx = r.Next(1, 99);
-                int ny = r.Next(1, 99);
+                int nx = r.Next(1, IMAGE_SIZE);
+                int ny = r.Next(1, IMAGE_SIZE);
                 noiseBrush.Draw(g, nx, ny, color);
             }
             pictureBox.Refresh();

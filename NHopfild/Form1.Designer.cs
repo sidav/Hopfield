@@ -47,7 +47,7 @@
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox.Location = new System.Drawing.Point(15, 15);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox.Size = new System.Drawing.Size(150, 150);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
@@ -55,7 +55,7 @@
             // identifyButton
             // 
             this.identifyButton.Enabled = false;
-            this.identifyButton.Location = new System.Drawing.Point(121, 131);
+            this.identifyButton.Location = new System.Drawing.Point(221, 132);
             this.identifyButton.Name = "identifyButton";
             this.identifyButton.Size = new System.Drawing.Size(75, 52);
             this.identifyButton.TabIndex = 1;
@@ -66,7 +66,7 @@
             // learnButton
             // 
             this.learnButton.Enabled = false;
-            this.learnButton.Location = new System.Drawing.Point(121, 15);
+            this.learnButton.Location = new System.Drawing.Point(221, 16);
             this.learnButton.Name = "learnButton";
             this.learnButton.Size = new System.Drawing.Size(75, 23);
             this.learnButton.TabIndex = 2;
@@ -77,7 +77,7 @@
             // mislearnButton
             // 
             this.mislearnButton.Enabled = false;
-            this.mislearnButton.Location = new System.Drawing.Point(121, 73);
+            this.mislearnButton.Location = new System.Drawing.Point(221, 74);
             this.mislearnButton.Name = "mislearnButton";
             this.mislearnButton.Size = new System.Drawing.Size(75, 23);
             this.mislearnButton.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             // downloadButton
             // 
-            this.downloadButton.Location = new System.Drawing.Point(16, 160);
+            this.downloadButton.Location = new System.Drawing.Point(15, 250);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(75, 23);
             this.downloadButton.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(16, 131);
+            this.saveButton.Location = new System.Drawing.Point(15, 221);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 5;
@@ -107,7 +107,7 @@
             // 
             // EraseButton
             // 
-            this.EraseButton.Location = new System.Drawing.Point(121, 44);
+            this.EraseButton.Location = new System.Drawing.Point(221, 45);
             this.EraseButton.Name = "EraseButton";
             this.EraseButton.Size = new System.Drawing.Size(75, 23);
             this.EraseButton.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StatusLabel.Location = new System.Drawing.Point(12, 199);
+            this.StatusLabel.Location = new System.Drawing.Point(168, 250);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(128, 20);
             this.StatusLabel.TabIndex = 7;
@@ -128,7 +128,7 @@
             // 
             // NoiseButton
             // 
-            this.NoiseButton.Location = new System.Drawing.Point(121, 102);
+            this.NoiseButton.Location = new System.Drawing.Point(221, 103);
             this.NoiseButton.Name = "NoiseButton";
             this.NoiseButton.Size = new System.Drawing.Size(75, 23);
             this.NoiseButton.TabIndex = 8;
@@ -141,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(220, 228);
+            this.ClientSize = new System.Drawing.Size(316, 290);
             this.Controls.Add(this.NoiseButton);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.EraseButton);
