@@ -15,12 +15,12 @@ namespace NHopfild
     {
         private const int ALLOWED_NOISE = 6;
         private const double WEIGHT_CORRECT_COEF = 0.07;
-        private const int DIMENSION = 1800;
+        private int DIMENSION;
         private int IMAGE_SIZE = 150;
         private const int SUBCELL_SIZE = 5;
         private int num_cells;
 
-        private double[,] weights = new double[DIMENSION, DIMENSION];
+        private double[,] weights;
         private List<int> last_inputs;
         private List<int> cur_inputs;
 
@@ -31,6 +31,8 @@ namespace NHopfild
         
         public Form1()
         {
+            DIMENSION = 2 * (IMAGE_SIZE / SUBCELL_SIZE) * (IMAGE_SIZE / SUBCELL_SIZE);
+            weights = new double[DIMENSION, DIMENSION];
             num_cells = IMAGE_SIZE / SUBCELL_SIZE;
             InitializeComponent();
             brush = new Model.Brush(3);
@@ -133,7 +135,7 @@ namespace NHopfild
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            IMAGE_SIZE = (int)(pictureBox.Width);
         }
 
         private void InitImage()
@@ -304,9 +306,8 @@ namespace NHopfild
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                StatusLabel.Text = "Файл сохранён.";
             }
-
-            MessageBox.Show("Успешно!");
 
         }
 

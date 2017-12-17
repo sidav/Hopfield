@@ -120,7 +120,7 @@
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StatusLabel.Location = new System.Drawing.Point(168, 250);
+            this.StatusLabel.Location = new System.Drawing.Point(110, 250);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(128, 20);
             this.StatusLabel.TabIndex = 7;
@@ -163,8 +163,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button identifyButton;
         private System.Windows.Forms.Button learnButton;
         private System.Windows.Forms.Button mislearnButton;
@@ -173,6 +171,7 @@
         private System.Windows.Forms.Button EraseButton;
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.Button NoiseButton;
+        public System.Windows.Forms.PictureBox pictureBox;
     }
 }
 
