@@ -136,6 +136,7 @@ namespace NHopfild
         private void Form1_Load(object sender, EventArgs e)
         {
             IMAGE_SIZE = (int)(pictureBox.Width);
+            NoiseButton.Text = "Зашумить " + NoiseBar.Value.ToString() + "%";
         }
 
         private void InitImage()
@@ -340,17 +341,23 @@ namespace NHopfild
 
         private void NoiseButton_Click(object sender, EventArgs e)
         {
-            int cellsPerRow = IMAGE_SIZE / SUBCELL_SIZE;
+            int totalPixels = IMAGE_SIZE * IMAGE_SIZE;
+            int noiseAmount = (int)((float)totalPixels * (float)(NoiseBar.Value) / 100.0);
             Random r = new Random();
             Graphics g = Graphics.FromImage(pictureBox.Image);
             Model.Brush noiseBrush = new Model.Brush(0);
-            for (int i = 0; i < cellsPerRow*cellsPerRow; i++)
+            for (int i = 0; i < noiseAmount; i++)
             {
                 int nx = r.Next(1, IMAGE_SIZE);
                 int ny = r.Next(1, IMAGE_SIZE);
                 noiseBrush.Draw(g, nx, ny, color);
             }
             pictureBox.Refresh();
+        }
+
+        private void NoiseBar_Scroll(object sender, EventArgs e)
+        {
+            NoiseButton.Text = "Зашумить "+ NoiseBar.Value.ToString() + "%";
         }
     }
 }

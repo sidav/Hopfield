@@ -37,7 +37,9 @@
             this.EraseButton = new System.Windows.Forms.Button();
             this.StatusLabel = new System.Windows.Forms.Label();
             this.NoiseButton = new System.Windows.Forms.Button();
+            this.NoiseBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseBar)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -55,9 +57,9 @@
             // identifyButton
             // 
             this.identifyButton.Enabled = false;
-            this.identifyButton.Location = new System.Drawing.Point(221, 132);
+            this.identifyButton.Location = new System.Drawing.Point(221, 103);
             this.identifyButton.Name = "identifyButton";
-            this.identifyButton.Size = new System.Drawing.Size(75, 52);
+            this.identifyButton.Size = new System.Drawing.Size(75, 62);
             this.identifyButton.TabIndex = 1;
             this.identifyButton.Text = "Распознать";
             this.identifyButton.UseVisualStyleBackColor = true;
@@ -128,13 +130,25 @@
             // 
             // NoiseButton
             // 
-            this.NoiseButton.Location = new System.Drawing.Point(221, 103);
+            this.NoiseButton.Location = new System.Drawing.Point(183, 171);
             this.NoiseButton.Name = "NoiseButton";
-            this.NoiseButton.Size = new System.Drawing.Size(75, 23);
+            this.NoiseButton.Size = new System.Drawing.Size(113, 45);
             this.NoiseButton.TabIndex = 8;
             this.NoiseButton.Text = "Зашумить";
             this.NoiseButton.UseVisualStyleBackColor = true;
             this.NoiseButton.Click += new System.EventHandler(this.NoiseButton_Click);
+            // 
+            // NoiseBar
+            // 
+            this.NoiseBar.Location = new System.Drawing.Point(15, 171);
+            this.NoiseBar.Maximum = 25;
+            this.NoiseBar.Minimum = 1;
+            this.NoiseBar.Name = "NoiseBar";
+            this.NoiseBar.Size = new System.Drawing.Size(150, 45);
+            this.NoiseBar.TabIndex = 9;
+            this.NoiseBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.NoiseBar.Value = 1;
+            this.NoiseBar.Scroll += new System.EventHandler(this.NoiseBar_Scroll);
             // 
             // Form1
             // 
@@ -142,6 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(316, 290);
+            this.Controls.Add(this.NoiseBar);
             this.Controls.Add(this.NoiseButton);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.EraseButton);
@@ -157,6 +172,7 @@
             this.Text = "Сеть Хопфилда";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +188,7 @@
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.Button NoiseButton;
         public System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.TrackBar NoiseBar;
     }
 }
 
