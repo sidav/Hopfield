@@ -335,14 +335,16 @@ namespace NHopfild
 
             isPictureDrawn = true;
             UpdateLearnButton();
+            StatusLabel.Text = "Картинка загружена.";
         }
 
         private void NoiseButton_Click(object sender, EventArgs e)
         {
+            int cellsPerRow = IMAGE_SIZE / SUBCELL_SIZE;
             Random r = new Random();
             Graphics g = Graphics.FromImage(pictureBox.Image);
             Model.Brush noiseBrush = new Model.Brush(0);
-            for (int i = 0; i < 150; i++)
+            for (int i = 0; i < cellsPerRow*cellsPerRow; i++)
             {
                 int nx = r.Next(1, IMAGE_SIZE);
                 int ny = r.Next(1, IMAGE_SIZE);
